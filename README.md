@@ -4,6 +4,7 @@
 Интегрируется с базой данных пропускного пункта, фиксируя всех посетителей и время их нахождения в зоне.
 
 ### Описание проекта
+
 Проект представляет собой пульт управления для охранника банка, который отвечает за контроль доступа к хранилищу. Система фиксирует все посещения сотрудников и позволяет охраннику следить за теми, кто находится в хранилище. Проект реализован с использованием Django ORM (Объектно-реляционная модель Django) и базируется на учебном репозитории Django-ORM-standalone .
 
 Это приложение решает проблему обеспечения безопасности хранилища банка путем строгого учета всех входов и выходов сотрудников.
@@ -29,45 +30,46 @@
 
 1. Клонируйте репозиторий:
 
+```python
 git clone https://github.com/ваш-репозиторий.git
-
 cd django-orm-standalone
-   
+ ```
+
 2. Создайте и активируйте виртуальное окружение:
 
+```python
 python -m venv venv
-
 source venv/bin/activate  # Linux/Mac
-
 venv\Scripts\activate     # Windows
+```
 
 3. Установите зависимости:
 
+```python
 pip install -r requirements.txt
-
 pip install python-dotenv
+```
 
 4. Настройте подключение к БД:
 
-Создайте файл .env на основе .env.example:
+    Создайте файл .env на основе .env.example:
 
+```python
 DB_HOST=
-
 DB_PORT=
-
 DB_NAME=
-
 DB_USER=
-
 DB_PASSWORD=
+```
 
 5. Запуск
 
+```python
 python main.py
-
+```
 ## Пример работы:
 
-```
+```python
 # Получение активных пропусков
 active_passcards = Passcard.objects.filter(is_active=True)
 print(f"Найдено активных пропусков: {len(active_passcards)}")
@@ -93,6 +95,6 @@ print(f"Найдено активных пропусков: {len(active_passcard
 
 ## Полезные ссылки
  
-Документация Django ORM [https://docs.djangoproject.com/en/3.2/topics/db/]
+[Документация Django ORM](https://docs.djangoproject.com/en/3.2/topics/db/)
 
-Курс dvmn.org [https://dvmn.org/modules/]
+[Курс dvmn.org](https://dvmn.org/modules/)
