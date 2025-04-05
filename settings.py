@@ -1,23 +1,24 @@
-import os
-from dotenv import load_dotenv
+from environs import Env
 
-load_dotenv()
+env = Env()    # Создаём объект Env для работы с переменными окружения
 
-DATABASES = {
+env.read_env()    # Загружаем переменные из .env файла
+
+DATABASES = {    # Настройки базы данных с валидацией типов
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': env.str('DB_HOST'),  # Строка, обязательная переменная
+        'PORT': env.int('DB_PORT', default=5432),  # Целое число, значение по умолчанию 5432
+        'NAME': env.str('DB_NAME'),  # Строка, обязательная переменная
+        'USER': env.str('DB_USER'),  # Строка, обязательная переменная
+        'PASSWORD': env.str('DB_PASSWORD'),  # Строка, обязательная переменная
     }
 }
 
-INSTALLED_APPS = ['datacenter']
+INSTALLED_APPS = ['datacenter']    # Список установленных приложений
 
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = env.str('SECRET_KEY')    # Секретный ключ Django (обязательная переменная)
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'Europe/Moscow'    # Настройки времени
 
 USE_TZ = True
