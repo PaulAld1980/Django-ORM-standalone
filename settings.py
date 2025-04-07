@@ -1,24 +1,24 @@
 from environs import Env
 
-env = Env()    # Создаём объект Env для работы с переменными окружения
+env = Env()
 
-env.read_env()    # Загружаем переменные из .env файла
+env.read_env()
 
-DATABASES = {    # Настройки базы данных с валидацией типов
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': env.str('DB_HOST'),  # Строка, обязательная переменная
-        'PORT': env.int('DB_PORT', default=5432),  # Целое число, значение по умолчанию 5432
-        'NAME': env.str('DB_NAME'),  # Строка, обязательная переменная
-        'USER': env.str('DB_USER'),  # Строка, обязательная переменная
-        'PASSWORD': env.str('DB_PASSWORD'),  # Строка, обязательная переменная
+        'HOST': env.str('DB_HOST'),
+        'PORT': env.int('DB_PORT', default=5432),
+        'NAME': env.str('DB_NAME'),
+        'USER': env.str('DB_USER'),
+        'PASSWORD': env.str('DB_PASSWORD'),
     }
 }
 
-INSTALLED_APPS = ['datacenter']    # Список установленных приложений
+INSTALLED_APPS = ['datacenter']
 
-SECRET_KEY = env.str('SECRET_KEY')    # Секретный ключ Django (обязательная переменная)
+SECRET_KEY = env.str('SECRET_KEY')
 
-TIME_ZONE = 'Europe/Moscow'    # Настройки времени
+TIME_ZONE = 'Europe/Moscow'
 
 USE_TZ = True
