@@ -32,13 +32,6 @@
 | `DB_USER`       | Да           | `security_admin`          | Пользователь БД |
 | `DB_PASSWORD`   | Да           | `s3cur3P@ss!2023`         | Пароль пользователя |
 
-### Дополнительные настройки
-
-| Переменная      | Обязательная | Пример значения | Описание |
-|-----------------|--------------|-----------------|----------|
-| `DEBUG`         | Нет          | `False`         | Режим отладки |
-| `TIME_ZONE`     | Нет          | `Europe/Moscow` | Часовой пояс |
-| `LOG_LEVEL`     | Нет          | `INFO`          | Уровень логирования |
 
 ### Описание переменных
 
@@ -76,7 +69,6 @@ source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate    # Windows
 
 pip install -r requirements.txt
-pip install python-dotenv
 ```
 
 3. Настройка подключения к БД:
